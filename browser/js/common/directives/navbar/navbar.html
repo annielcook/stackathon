@@ -1,0 +1,24 @@
+<nav class="navbar navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <fullstack-logo></fullstack-logo>
+        </div>
+        <ul class="nav navbar-nav">
+            <form name="searchForm">
+                <label for="">Find</label>
+                <input type="text" name="search_item" ng-model="route.find" required />
+                <select ng-model="route.mode" ng-options="mode.value as mode.name for mode in modes"></select>
+                <label for="">Start</label>
+                <input type="text" name="start_ad" ng-model="route.start" required />
+                <label for="">End</label>
+                <input type="text" name="end_ad" ng-model="route.end" required />
+                <button ng-click="calcLongLat()">RESET</button>
+            </form>
+        </ul>
+        <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
+        <div ng-show="user" class="welcome">
+            <span>Welcome, {{ user.email }}!</span>
+            <a ng-click="logout()">Logout</a>
+        </div>
+    </div>
+</nav>
